@@ -1,0 +1,19 @@
+h1{
+    font-family: 'Pacifico', cursive;
+    font-size: x-large;
+    color: white;
+}
+
+h2.title{
+    color: white;
+}
+
+nav{
+    background-color: black;
+}
+
+.box {
+    border: black;
+    border-radius: 25px;
+}
+
