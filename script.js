@@ -176,12 +176,41 @@ $(document).ready(function () {
         
         var queryURL = "https://api.thedogapi.com/v1/breeds/search?api_key=fc1579f0-3bd7-47b7-8946-72cbf49fb328&q="
         + breed;
-
+        var id;
         $.ajax({
             url: queryURL,
             method: "GET",
         }).then(function (response) {
             console.log(response)
+            var breed = response[0];
+            //Change dog breed
+            $(".dog-breed").text( breed.name);
+
+            //change height
+            $(".breed-size").text("Height: " + breed.height.imperial);
+
+            $(".weight").text("Weight: " + breed.weight.imperial);
+
+            $(".temperament").text("Temperament: " + breed.temperament);
+          
+            id = breed.id;
+           
+            //change url to get data that holds the picture using the id retrieved from the old url
+            var imageURL = "https://api.thedogapi.com/v1/images/search?api_key=fc1579f0-3bd7-47b7-8946-72cbf49fb328&breed_id="
+           + id;
+
+         //second ajax call using image url
+           $.ajax({
+            url: imageURL,
+            method: "GET",
+        }).then(function (response) {
+            console.log(response[0].url);
+
+            $("#breed-image").attr("src",(response[0].url));
+          
+        });
+
+
         });
 
     });
