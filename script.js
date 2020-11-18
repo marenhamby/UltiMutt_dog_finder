@@ -182,8 +182,16 @@ $(document).ready(function () {
             method: "GET",
         }).then(function (response) {
             console.log(response)
-            
-            $(".dog-breed").text("Dog Breed: " + response[0].name);
+            var breed = response[0];
+            //Change dog breed
+            $(".dog-breed").text( breed.name);
+
+            //change height
+            $(".breed-size").text("Height: " + breed.height.imperial);
+
+            $(".weight").text("Weight: " + breed.weight.imperial);
+
+            $(".temperament").text("Temperament: " + breed.temperament);
 
         });
 
