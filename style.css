@@ -1,5 +1,26 @@
+html{
+    background-color: #dcdcdc;
+    
+}
+
+img {
+    border-style: solid;
+    border-color: #66d3fa;
+    border-width: thick;
+}
+
+span {
+    color: #66d3fa;
+}
+
 .navbar-menu {
     height: 6rem;
+    width: max-content;
+    
+}
+
+.button.is-medium{
+    background: #66d3fa;
 }
 
 h1{
@@ -8,10 +29,20 @@ h1{
     color: white;
 }
 
-h2 {
+h2#welcome {
     font-family: 'Pacifico', cursive;
     font-size: xx-large;
     color: black;
+    border-style: solid;
+    border-color: #66D3fa;
+    border-radius: inherit;
+    border-width: 5px;
+}
+
+h3{
+    font-family: 'Pacifico', cursive;
+    font-size: xx-large;
+    color: black; 
 }
 
 .box {
@@ -23,5 +54,41 @@ h2 {
 #quiz {
     display: none;
 }
+
+a{
+    background-color: #66D3FA;
+}
+
+button#startQuiz {
+    background: #66d3fa;
+    font-size: xx-large;
+}
+
+button#submitQuiz {
+    background: #66d3fa;
+    font-size: xx-large;
+}
+
+.column.is-three-fifths.is-offset-one-fifth {
+    border-style: solid;
+    border-color: #66D3fa;
+    border-width: thick;
+    background: white;
+}
+
+
+/*Padding for Quiz Button: Change value to 0 when button pressed*/
+.quizBtnpadding { 
+    padding: auto;
+}
+
+label.checkbox {
+    font-size: x-large;
+}
+
+#centers{
+    display: none;
+}
+
 
 
