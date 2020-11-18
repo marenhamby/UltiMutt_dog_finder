@@ -99,3 +99,7 @@ label.checkbox {
 }
 
 
+/*Additional Styles for Breed Page*/
+#searchDropdown{
+    justify-content: center;
+}
