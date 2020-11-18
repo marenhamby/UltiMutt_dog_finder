@@ -4,7 +4,10 @@ $(document).ready(function() {
     //on load, hide the quiz
     $("#quiz").hide();
 
-    //create global variables
+    //create global variables for the results that come in from the quiz
+    var age = [];
+    var gender = [];
+    var size = [];
 
     // create on-click function to open the quiz
     $("#startQuiz").on("click", function(event) {
@@ -22,13 +25,7 @@ $(document).ready(function() {
         //hide the quiz content
         $("#quiz").hide();
 
-        //make api call to get the adoption info from results of the quiz
-
-        //create variables for the results that come in from the quiz
-        var age = [];
-        var gender = [];
-        var size = [];
-
+        
         //create if statements to change the value of age depending on which age is checked
         if ($(".baby").is(":checked")) {
             age.push("baby")
@@ -43,7 +40,7 @@ $(document).ready(function() {
             age.push("senior")
         };
         console.log(age);
-
+        
         //create if statements to change the value of gender depending on which gender is checked
         if ($(".male").is(":checked")) {
             gender.push("male")
@@ -71,25 +68,53 @@ $(document).ready(function() {
             size.push("x-large")
         };
         console.log(size);
-
+        
         //make a variable for the url to be used in the api call
         var adoptURL = "https://petproxy.herokuapp.com/animals";
         
-        //make api call for the breed info
+        //make api call to get the adoption info from results of the quiz
         $.ajax({
             url: adoptURL,
             method: "GET",
         }).then (function(response) {
             console.log(response)
+            
         });
+        
+        //add var from results from api call
+        var dogNameResult = response.animals[i].name
+        var dogTypeResult = response.animals[i].breeds.primary
+        var ageResult = response.animals[i].age
+        var genderResult = response.animals[i].gender
+        var sizeResult = response.animals[i].size
+        var pictureResult = response.animals[i].photos[0].medium
+        var cityStateResult = response.animals[i].contact.address.city + ", " + response.animals[i].contact.address.state
+        var linkResult = response.animals[i].url
+        //add looped tiles for results from the api call 
+        
 
+        //add adoption center name
+        //add city and state of adoption center
+        //add link to center
+        //add dog info
+        //add save button
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //make api call for the breed info
     })
-
-
-
-
-
-
-
+    
+    
+    
+    
+    
+    
+    
 
 })
