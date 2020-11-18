@@ -1,16 +1,47 @@
 //make sure the page has loaded before starting anything
-$(document).ready(function() {
+$(document).ready(function () {
 
-    //on load, hide the quiz
-    $("#quiz").hide();
-
-    //create global variables for the results that come in from the quiz
+    //create global variables
     var age = [];
     var gender = [];
     var size = [];
 
+    //on load, hide the quiz
+    $("#quiz").hide();
+
+<<<<<<< HEAD
+    //create global variables for the results that come in from the quiz
+    var age = [];
+    var gender = [];
+    var size = [];
+=======
+    //function that builds url based on filtered search
+    function buildQueryURL() {
+
+        var queryURL = "https://petproxy.herokuapp.com/animals?";
+        var queryParams = {"type": "dog"};
+
+        //Check if age array has values then sets age array values to the key "age"
+        if (age.length) {
+            queryParams.age = age.join(",");
+        }
+       //Check if gender array has values then sets gender array values to the key "gender"
+        if (gender.length) {
+            queryParams.gender = gender.join(",");
+        }
+       //Check if size array has values then sets size array values to the key "size"
+        if (size.length) {
+            queryParams.size = size.join(",");
+        }
+        
+        console.log(queryURL + $.param(queryParams));
+        return queryURL +"&"+ $.param(queryParams);
+    }
+
+>>>>>>> 3440c1a3f5ceada9a15e35ce69c3cb41fab170fc
+
     // create on-click function to open the quiz
-    $("#startQuiz").on("click", function(event) {
+    $("#startQuiz").on("click", function (event) {
         event.preventDefault();
 
         //show quiz content and hide the button to start the quiz
@@ -19,13 +50,19 @@ $(document).ready(function() {
     });
 
     //create on-click function for the submit button for the quiz, and hide the quiz to display results info
-    $("#submitQuiz").on("click", function(event) {
+    $("#submitQuiz").on("click", function (event) {
         event.preventDefault();
 
         //hide the quiz content
         $("#quiz").hide();
 
+<<<<<<< HEAD
         
+=======
+        //create variables for the results that come in from the quiz
+
+
+>>>>>>> 3440c1a3f5ceada9a15e35ce69c3cb41fab170fc
         //create if statements to change the value of age depending on which age is checked
         if ($(".baby").is(":checked")) {
             age.push("baby")
@@ -68,16 +105,24 @@ $(document).ready(function() {
             size.push("x-large")
         };
         console.log(size);
+<<<<<<< HEAD
         
         //make a variable for the url to be used in the api call
         var adoptURL = "https://petproxy.herokuapp.com/animals";
         
         //make api call to get the adoption info from results of the quiz
+=======
+
+        //make api call to get the adoption info from results of the quiz
+        var queryURL = buildQueryURL();
+        
+>>>>>>> 3440c1a3f5ceada9a15e35ce69c3cb41fab170fc
         $.ajax({
-            url: adoptURL,
+            url: queryURL,
             method: "GET",
-        }).then (function(response) {
+        }).then(function (response) {
             console.log(response)
+<<<<<<< HEAD
             
         });
         
@@ -116,5 +161,25 @@ $(document).ready(function() {
     
     
     
+=======
 
-})
+        });
+
+
+
+        // //make a variable for the url to be used in the api call
+        // var adoptURL = "https://petproxy.herokuapp.com/animals?type=dog";
+
+        // //make api call for the breed info
+        // $.ajax({
+        //     url: adoptURL,
+        //     method: "GET",
+        // }).then (function(response) {
+        //     console.log(response)
+        // });
+
+    });
+
+>>>>>>> 3440c1a3f5ceada9a15e35ce69c3cb41fab170fc
+
+});
