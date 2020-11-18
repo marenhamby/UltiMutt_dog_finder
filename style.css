@@ -103,3 +103,7 @@ label.checkbox {
 #searchDropdown{
     justify-content: center;
 }
+
+button#chooseBtn {
+    background-color: #66d3fa;
+}

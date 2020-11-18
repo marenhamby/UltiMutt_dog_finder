@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <!--External Style Sheet-->
     <link href='style.css' rel='stylesheet'>
+    
 </head>
 
 <body>
@@ -38,11 +39,6 @@
         </div>
     </nav>
     <!--Navigation End-->
-    <br><br>
-    <h2 class='has-text-centered mx-6' id='welcome'>Welcome to the UlitMUTT Dog Finder! We hope that this short matchmaking
-        quiz will help you find your forever companion! If you are unsure about what you are looking for, feel free to
-        skip the quiz and take a look at adoption centers near you by clicking "ADOPT" found in the top left corner of
-        our site!</h2>
     <br><br>
 
     <!--Box: Dog Images-->
@@ -88,25 +84,33 @@
     <section>
         <div class='breed'>
             <!--Begin Breed Options-->
-            <div class='columns my-6'>
+            <div class='columns my-6 is-mobile'>
                 <div class='column is-three-fifths is-offset-one-fifth'>
                     <div class='content has-text-centered'>
                         <h3 class="has-text-centered is-size-2">Breed Information</h3>
-                        
-                        <div class="field has-addons" id='searchDropdown'>
-                                <div class="control">
-                                  <input class="input" id='breed-search' type="text" placeholder="Dog Breed">
+                        <div class="field">
+                            <div class="field has-addons">
+                                <div class="control is-expanded">
+                                  <div class="select is-fullwidth">
+                                    <select name="dogbreed">
+                                      <option>Poodle</option>
+                                      <option>Poodle</option>
+                                      <option>Poodle</option>
+                                      <option>Poodle</option>
+                                      <option>Poodle</option>
+                                      <option>Poodle</option>
+                                      <option>Poodle</option>
+                                      <option>Poodle</option>
+                                    </select>
+                                  </div>
                                 </div>
                                 <div class="control">
-                                  <a class="button is-info" id='search-btn'>
-                                    Search
-                                  </a>
+                                  <button type="submit" class="button" id='chooseBtn'><strong>Select</strong></button>
                                 </div>
-                        </div>
-                                <br>
+                              </div>
                                 <!--Location One Start-->
                                 <div class='breed-dropdown'>
-                                    <h3 class='has-text-centered dog-breed'>Dog Breed</h3>
+                                    <h3 class='has-text-centered dog-breed is-size-3'>Dog Breed</h3>
                                     <div class='has-text-centered'>
                                         <label class="has-text-centered">
                                             <img src="#" id='breed-image'>
