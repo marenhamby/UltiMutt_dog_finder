@@ -53,7 +53,7 @@ $(document).ready(function () {
 
         //hide the quiz content
         $("#quiz").hide();
-
+        
         //create if statements to change the value of age depending on which age is checked
         if ($(".baby").is(":checked")) {
             age.push("baby")
@@ -97,7 +97,11 @@ $(document).ready(function () {
         };
         console.log(size);
 
-        //make api call to get the adoption info from results of the quiz
+        //assign values to sity and state variable based on input
+         city = $("#city").val();
+        state =$("#state").val();
+
+        //make api call to get the adoption info from results of input fields
         var queryURL = buildQueryURL();
         
         $.ajax({
