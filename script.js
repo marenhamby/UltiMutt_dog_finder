@@ -30,9 +30,10 @@ $(document).ready(function () {
         if (size.length) {
             queryParams.size = size.join(",");
         }
+
+        //set query param for location
+        queryParams.location = city + ", "+state;
         
-        console.log(city);
-        console.log(state);
         console.log(queryURL + $.param(queryParams));
         return queryURL +"&"+ $.param(queryParams);
     }
@@ -98,7 +99,7 @@ $(document).ready(function () {
         console.log(size);
 
         //assign values to sity and state variable based on input
-         city = $("#city").val();
+        city = $("#city").val();
         state =$("#state").val();
 
         //make api call to get the adoption info from results of input fields
