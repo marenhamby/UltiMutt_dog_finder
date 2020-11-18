@@ -1,25 +1,27 @@
+.navbar-menu {
+    height: 6rem;
+}
+
 h1{
+    font-family: 'Pacifico', cursive;
+    font-size: xx-large;
+    color: white;
+}
+
+h2 {
     font-family: 'monospace', cursive;
-    font-size: 40px;
-    color: white;
-}
-
-h2.title{
-    color: white;
-}
-
-nav{
-    background-color: black;
+    font-size: xx-large;
+    color: black;
 }
 
 .box {
     border: black;
     border-radius: 25px;
 }
-body {
-    background-color: rgb(6, 109, 143);
+
+
+#quiz {
+    display: none;
 }
-.fas {
-    color: white;
-}
-}
+
+

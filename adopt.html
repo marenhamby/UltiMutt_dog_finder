@@ -1,11 +1,20 @@
+  
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adopt</title>
+    <title>UltiMUTT Dog Finder</title>
+    <!--Bulma Style Sheet Link-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+    <!--Google Fonts Links-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <!--External Style Sheet-->
+    <link href='style.css' rel='stylesheet'>
 </head>
+
 <body>
     <!--Navigation Start-->
     <nav>
@@ -17,16 +26,17 @@
             </div>
             <div class='navbar-end'>
                 <div class='navbar-item'>
-                    <a class='link'>HOME</a>
+                    <a class='link' href='index.html'>HOME</a>
                 </div>
                 <div class='navbar-item'>
-                    <a class='link'>ADOPT</a>
+                    <a class='link' href='adopt.html'>ADOPT</a>
                 </div>
             </div>
         </div>
     </nav>
-<!--Navigation End-->
+    <!--Navigation End-->
 
+    <!--Box: Dog Images-->
     <div class="box ">
         <div class="tile is-ancestor is-fixed-top">
             <div class="tile is-2">
@@ -49,10 +59,26 @@
                 <img src="https://bulma.io/images/placeholders/256x256.png">
             </div>
         </div>
-        <div class='box'>
+        <!--End of Dog Images-->
+<!---Name of the adoption center
+-City, State of the adoption center
+-link to the center's page
+-type of dog
+-pic of dog (if available)
+-dog age
+-dog gender
+-dog size
+-save button-->
+
+
+        <!--Box: Adoption Center-->
+        <div class='box' id='adoptionCenters'>
             <!--Column Containing Adoption Center Information-->
-            <h1 class="has-text-centered is-size-2">Adoption Centers Near You</h1>
-            <hr>
+            <h2 class="has-text-centered is-size-2">Breed Information</h2>
+            <!--place to hold name, temperament, use dropdown, more about the kind of pet and what center that they're with
+            //quiz results will need to look like adoption center page
+            /adoption info put underneath box containing quiz and then delete all but one and then pass to Maren
+            --><hr>
             <div class='columns'>
                 <div class='column is-three-fifths is-offset-one-fifth'>
                     <div class='content'>
@@ -63,121 +89,124 @@
                             <div class='has-text-centered '>
                                 <label class="has-text-centered location-address">
                                     <p class="is-size-5">
-                                       Street Name
-                                <label class="has-text-centered location-city-state-zip">
-                                    <p class="is-size-5">
-                                        City, State Zip                                    
-                                    </p>                           
-                                </label>
-                                <br>
-                                <!--Button begin-->
-                                <div class='has-text-centered'>
-                                    <button class="button is-info is-rounded">Click Here</button>
-                                </div>
-                                <!--Button end-->
+                                        Street Name
+                                        <label class="has-text-centered location-city-state-zip">
+                                            <p class="is-size-5">
+                                                City, State Zip
+                                            </p>
+                                        </label>
+                                        <br>
+                                        <!--Button One begin-->
+                                    <div class='has-text-centered'>
+                                        <button class="button is-info is-rounded is-medium">Click Here</button>
+                                    </div>
+                                    <!--Button One end-->
                             </div>
                         </div>
                         <!--Location One End-->
                         <br>
                         <!--Location Two Start-->
                         <div class='LocationTwo'>
-                        <h2 class='has-text-centered location-name'>Location Center Name</h2>
-                        <div class='has-text-centered '>
-                            <label class="has-text-centered location-address">
-                                <p class="is-size-5">
-                                    Street Name
-                            <label class="has-text-centered location-city-state-zip">
-                                <p class="is-size-5">
-                                    City, State Zip                                    
-                                </p>                           
-                            </label>
-                            <br>
-                             <!--Button begin-->
-                             <div class='has-text-centered'>
-                                <button class="button is-info is-rounded">Click Here</button>
+                            <h2 class='has-text-centered location-name'>Location Center Name</h2>
+                            <div class='has-text-centered '>
+                                <label class="has-text-centered location-address">
+                                    <p class="is-size-5">
+                                        Street Name
+                                        <label class="has-text-centered location-city-state-zip">
+                                            <p class="is-size-5">
+                                                City, State Zip
+                                            </p>
+                                        </label>
+                                        <br>
+                                        <!--Button Two begin-->
+                                    <div class='has-text-centered'>
+                                        <button class="button is-info is-rounded is-medium">Click Here</button>
+                                    </div>
+                                    <!--Button Two end-->
                             </div>
-                            <!--Button end-->
                         </div>
-                    </div>
-                    <!--Location Two End-->
-                    <br>
-                    <!--Location Three Start-->
-                    <div class='LocationThree'>
-                        <h2 class='has-text-centered location-name'>Location Center Name</h2>
-                        <div class='has-text-centered '>
-                            <label class="has-text-centered location-address">
-                                <p class="is-size-5">
-                                    Street Name
-                            <label class="has-text-centered location-city-state-zip">
-                                <p class="is-size-5">
-                                    City, State Zip                                    
-                                </p>                           
-                            </label>
-                            <br>
-                             <!--Button begin-->
-                             <div class='has-text-centered'>
-                                <button class="button is-info is-rounded">Click Here</button>
+                        <!--Location Two End-->
+                        <br>
+                        <!--Location Three Start-->
+                        <div class='LocationThree'>
+                            <h2 class='has-text-centered location-name'>Location Center Name</h2>
+                            <div class='has-text-centered '>
+                                <label class="has-text-centered location-address">
+                                    <p class="is-size-5">
+                                        Street Name
+                                        <label class="has-text-centered location-city-state-zip">
+                                            <p class="is-size-5">
+                                                City, State Zip
+                                            </p>
+                                        </label>
+                                        <br>
+                                        <!--Button Three begin-->
+                                    <div class='has-text-centered'>
+                                        <button class="button is-info is-rounded is-medium">Click Here</button>
+                                    </div>
+                                    <!--Button Three end-->
                             </div>
-                            <!--Button end-->
                         </div>
-                    </div>
-                    <!--Location Three End-->
-                    <br>
-                    <!--Location Four Start-->
-                    <div class='LocationOne'>
-                        <h2 class='has-text-centered location-name'>Location Center Name</h2>
-                        <div class='has-text-centered '>
-                            <label class="has-text-centered location-address">
-                                <p class="is-size-5">
-                                    Street Name
-                            <label class="has-text-centered location-city-state-zip">
-                                <p class="is-size-5">
-                                    City, State Zip                                    
-                                </p>                           
-                            </label>
-                            <br>
-                             <!--Button begin-->
-                             <div class='has-text-centered'>
-                                <button class="button is-info is-rounded">Click Here</button>
+                        <!--Location Three End-->
+                        <br>
+                        <!--Location Four Start-->
+                        <div class='LocationOne'>
+                            <h2 class='has-text-centered location-name'>Location Center Name</h2>
+                            <div class='has-text-centered '>
+                                <label class="has-text-centered location-address">
+                                    <p class="is-size-5">
+                                        Street Name
+                                        <label class="has-text-centered location-city-state-zip">
+                                            <p class="is-size-5">
+                                                City, State Zip
+                                            </p>
+                                        </label>
+                                        <br>
+                                        <!--Button Four begin-->
+                                    <div class='has-text-centered'>
+                                        <button class="button is-info is-rounded is-medium">Click Here</button>
+                                    </div>
+                                    <!--Button Four end-->
                             </div>
-                            <!--Button end-->
                         </div>
-                    </div>
-                    <!--Location Four End-->
-                    <br>
-                    <!--Location Five Start-->
-                    <div class='LocationFive'>
-                        <h2 class='has-text-centered location-name'>Location Center Name</h2>
-                        <div class='has-text-centered '>
-                            <label class="has-text-centered location-address">
-                                <p class="is-size-5">
-                                    Street Name
-                            <label class="has-text-centered location-city-state-zip">
-                                <p class="is-size-5">
-                                    City, State Zip                                    
-                                </p>                           
-                            </label>
-                            <br>
-                             <!--Button Five begin-->
-                             <div class='has-text-centered'>
-                                <button class="button is-info is-rounded">Click Here</button>
+                        <!--Location Four End-->
+                        <br>
+                        <!--Location Five Start-->
+                        <div class='LocationFive'>
+                            <h2 class='has-text-centered location-name'>Location Center Name</h2>
+                            <div class='has-text-centered '>
+                                <label class="has-text-centered location-address">
+                                    <p class="is-size-5">
+                                        Street Name
+                                        <label class="has-text-centered location-city-state-zip">
+                                            <p class="is-size-5">
+                                                City, State Zip
+                                            </p>
+                                        </label>
+                                        <br>
+                                        <!--Button Five begin-->
+                                    <div class='has-text-centered'>
+                                        <button class="button is-info is-rounded is-medium">Click Here</button>
+                                    </div>
+                                    <!--Button Five end-->
                             </div>
-                            <!--Button Five end-->
                         </div>
+                        <!--Location Five End-->
+                        <br>
+
+                        <!--End of Content-->
                     </div>
-                    <!--Location Five End-->
-                    <br>
-                   
-                <!--End of Content-->
+                </div>
+                <!--End of Column-->
             </div>
-        </div>
-        <!--End of Column-->
-    </div>
-    <!--End of Box-->
+            <!--End of Box-->
 
 
+            <!--JavaScript Link-->
+            <script src='script.js'></script>
+            <!--jQuery Link-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <script src='script.js'></script>
-                
 </body>
-</html>
+
+</html
