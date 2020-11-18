@@ -182,6 +182,9 @@ $(document).ready(function () {
             method: "GET",
         }).then(function (response) {
             console.log(response)
+            
+            $(".dog-breed").text("Dog Breed: " + response[0].name);
+
         });
 
     });
