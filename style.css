@@ -1,6 +1,6 @@
 h1{
-    font-family: 'Pacifico', cursive;
-    font-size: x-large;
+    font-family: 'monospace', cursive;
+    font-size: 40px;
     color: white;
 }
 
@@ -16,4 +16,10 @@ nav{
     border: black;
     border-radius: 25px;
 }
-
+body {
+    background-color: rgb(6, 109, 143);
+}
+.fas {
+    color: white;
+}
+}
