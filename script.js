@@ -167,12 +167,16 @@ $(document).ready(function () {
 
     });
 
-    
+
     // create on-click function to take in input value of search and display dog breed info
     $("#search-btn").on("click", function(event){
         event.preventDefault();
-        var breed = $("#breed-search").val();
+        var breed = $("#breed-search").val().trim();
         console.log (breed);
+        
+        var queryURL = "https://api.thedogapi.com/v1/breeds/search?api_key=fc1579f0-3bd7-47b7-8946-72cbf49fb328&q="
+        + breed;
+
     });
 
 
