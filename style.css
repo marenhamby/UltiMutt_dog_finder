@@ -2,26 +2,26 @@
     height: 6rem;
 }
 
-
 h1{
     font-family: 'Pacifico', cursive;
-    font-size: x-large;
+    font-size: xx-large;
     color: white;
 }
 
 h2 {
     font-family: 'Pacifico', cursive;
-    font-size: x-large;
+    font-size: xx-large;
     color: black;
-}
-
-nav{
-    background-color: black;
 }
 
 .box {
     border: black;
     border-radius: 25px;
+}
+
+
+#quiz {
+    display: none;
 }
 
 
