@@ -25,23 +25,54 @@ $(document).ready(function() {
         //make api call to get the adoption info from results of the quiz
 
         //create variables for the results that come in from the quiz
-        var age = ""
-        var gender = ""
-        var size = ""
+        var age = []
+        var gender = []
+        var size = []
 
+        //create if statements to change the value of age depending on which age is checked
+        if ($(".baby").is(":checked")) {
+            age.push("baby")
+        }
+        if ($(".young").is(":checked")) {
+            age.push("young")
+        }
+        if ($(".adult").is(":checked")) {
+            age.push("adult")
+        }
+        if ($(".senior").is(":checked")) {
+            age.push("senior")
+        }
+        console.log(age)
+
+        //create if statements to change the value of gender depending on which gender is checked
+        if ($(".male").is(":checked")) {
+            gender.push("male")
+        }
+        if ($(".female").is(":checked")) {
+            gender.push("female")
+        }
+        if ($(".either").is(":checked")) {
+            gender.push("male")
+            gender.push("female")
+        }
+        console.log(gender)
+
+        //create if statements to change the value of size depending on which size is checked
         if ($(".small").is(":checked")) {
-            size = "small"
+            size.push("small")
         }
         if ($(".medium").is(":checked")) {
-            size = "medium"
+            size.push("medium")
         }
         if ($(".large").is(":checked")) {
-            size = "large"
+            size.push("large")
         }
         if ($(".X-large").is(":checked")) {
-            size = "x-large"
+            size.push("x-large")
         }
+        console.log(size)
 
+        
     })
 
 
