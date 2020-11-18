@@ -1,7 +1,7 @@
 //make sure the page has loaded before starting anything
 $(document).ready(function () {
 
-    //create global variables
+    //create global variables for the results that come in from the quiz
     var age = [];
     var gender = [];
     var size = [];
@@ -103,6 +103,29 @@ $(document).ready(function () {
             method: "GET",
         }).then(function (response) {
             console.log(response)
+
+            //add var from results from api call
+            var dogNameResult = response.animals[i].name
+            var dogTypeResult = response.animals[i].breeds.primary
+            var ageResult = response.animals[i].age
+            var genderResult = response.animals[i].gender
+            var sizeResult = response.animals[i].size
+            var pictureResult = response.animals[i].photos[0].medium
+            var cityStateResult = response.animals[i].contact.address.city + ", " + response.animals[i].contact.address.state
+            var linkResult = response.animals[i].url
+
+            //add looped tiles for results from the api call 
+            // for (var i=0; i<5; i++) {
+
+
+
+            // }
+    
+            //add adoption center name
+            //add city and state of adoption center
+            //add link to center
+            //add dog info
+            //add save button
 
         });
 
