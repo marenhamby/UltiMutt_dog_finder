@@ -5,8 +5,11 @@ $(document).ready(function () {
     var age = [];
     var gender = [];
     var size = [];
+    var city;
+    var state;
+    
 
-    //on load, hide the quiz
+    //on load, hide the quiz for the results that come in from the quiz
     $("#quiz").hide();
 
     //function that builds url based on filtered search
@@ -27,6 +30,9 @@ $(document).ready(function () {
         if (size.length) {
             queryParams.size = size.join(",");
         }
+
+        //set query param for location
+        queryParams.location = city + ", "+state;
         
         console.log(queryURL + $.param(queryParams));
         return queryURL +"&"+ $.param(queryParams);
@@ -48,10 +54,7 @@ $(document).ready(function () {
 
         //hide the quiz content
         $("#quiz").hide();
-
-        //create variables for the results that come in from the quiz
-
-
+        
         //create if statements to change the value of age depending on which age is checked
         if ($(".baby").is(":checked")) {
             age.push("baby")
@@ -95,7 +98,11 @@ $(document).ready(function () {
         };
         console.log(size);
 
-        //make api call to get the adoption info from results of the quiz
+        //assign values to sity and state variable based on input
+        city = $("#city").val();
+        state =$("#state").val();
+
+        //make api call to get the adoption info from results of input fields
         var queryURL = buildQueryURL();
         
         $.ajax({
