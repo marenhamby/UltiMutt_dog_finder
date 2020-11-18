@@ -9,16 +9,42 @@ $(document).ready(function() {
     // create on-click function to open the quiz
     $("#startQuiz").on("click", function(event) {
         event.preventDefault();
+
         //show quiz content and hide the button to start the quiz
         $("#quiz").show();
         $("#startQuiz").hide();
     });
 
     //create on-click function for the submit button for the quiz, and hide the quiz to display results info
-    //make api call to get the adoption info from results of the quiz
+    $("#submitQuiz").on("click", function(event) {
+        event.preventDefault();
+
+        //hide the quiz content
+        $("#quiz").hide();
+
+        //make api call to get the adoption info from results of the quiz
+
+        //create variables for the results that come in from the quiz
+        var age = ""
+        var gender = ""
+        var size = ""
+
+        if ($(".small").is(":checked")) {
+            size = "small"
+        }
+        if ($(".medium").is(":checked")) {
+            size = "medium"
+        }
+        if ($(".large").is(":checked")) {
+            size = "large"
+        }
+        if ($(".X-large").is(":checked")) {
+            size = "x-large"
+        }
+
+    })
 
 
-    //create on-click function for viewing breed information from the nav bar, and hide the quiz and results to display breed info
     //make api call for the breed info
 
 
