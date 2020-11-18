@@ -1,34 +1,33 @@
+
+/*Background Color for the entire HTML*/
 html{
-    background-color: #dcdcdc;
-    
+    background-color: #dcdcdc;  
 }
 
-img {
-    border-style: solid;
-    border-color: #66d3fa;
-    border-width: thick;
-}
-
-span {
-    color: #66d3fa;
-}
-
+/*Navbar-menu*/
 .navbar-menu {
     height: 6rem;
     width: max-content;
     
 }
 
-.button.is-medium{
-    background: #66d3fa;
-}
-
+/*UltiMUTT Title (Navbar)*/
 h1{
     font-family: 'Pacifico', cursive;
     font-size: xx-large;
     color: white;
 }
+/*Style for MUTT*/
+span {
+    color: #66d3fa;
+}
 
+/*Coloring for Navbar-links*/
+.button.is-medium{
+    background: #66d3fa;
+}
+
+/*#Welcome Styles*/
 h2#welcome {
     font-family: 'Pacifico', cursive;
     font-size: xx-large;
@@ -39,36 +38,37 @@ h2#welcome {
     border-width: 5px;
 }
 
+/*Image Styles*/
+img {
+    border-style: solid;
+    border-color: #66d3fa;
+    border-width: thick;
+}
+
+/*Title for Matchmaking Quiz*/
 h3{
     font-family: 'Pacifico', cursive;
     font-size: xx-large;
     color: black; 
 }
 
-.box {
-    border: black;
-    border-radius: 25px;
-}
-
-
+/*Hides Quiz upon page Load*/
 #quiz {
     display: none;
 }
 
-a{
-    background-color: #66D3FA;
-}
-
-button#startQuiz {
+/*Start Quiz/Submit Quiz Buttons*/
+button#startQuiz, button#submitQuiz{
     background: #66d3fa;
     font-size: xx-large;
 }
 
-button#submitQuiz {
-    background: #66d3fa;
-    font-size: xx-large;
+/*Padding for Matchmaking Quiz div - call once pressed*/
+#quizBtnPadding { 
+    padding: 0;
 }
 
+/*Column Border and Background*/
 .column.is-three-fifths.is-offset-one-fifth {
     border-style: solid;
     border-color: #66D3fa;
@@ -76,19 +76,26 @@ button#submitQuiz {
     background: white;
 }
 
-
-/*Padding for Quiz Button: Change value to 0 when button pressed*/
-.quizBtnpadding { 
-    padding: auto;
-}
-
+/*Font Size for Answer Choices*/
 label.checkbox {
     font-size: x-large;
 }
 
+/*Adoption Center Style*/
+/*Hides #Centers upon page load*/
 #centers{
     display: none;
 }
 
+/*Sizing for Adoption Center Content*/
+.content h4{
+    font-size: x-large;
+}
+
+/*Save Button Style - Adoption Center*/
+#saveBtn{
+    background: #66d3fa;
+    font-size: xx-large;
+}
 
 
