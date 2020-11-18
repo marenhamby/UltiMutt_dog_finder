@@ -5,71 +5,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UltiMUTT Dog Finder</title>
+    <!--Bulma Style Sheet Link-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+    <!--Google Fonts Links-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <!--External Style Sheet-->
+    <link href='style.css' rel='stylesheet'>
 </head>
 
 <body>
+
     <!--Navigation Start-->
     <nav>
         <div class='navbar-menu'>
             <div class='navbar-start'>
-                <!--Acting as Title-->
                 <div class='navbar-item'>
                     <h1>UltiMUTT Dog Finder</h1>
                 </div>
             </div>
             <div class='navbar-end'>
-                <!--Link to Home Page-->
                 <div class='navbar-item'>
-                    <a class='link'>HOME</a>
+                    <a class='link' href='index.html'>HOME</a>
                 </div>
-                <!--Link to Adoption Info Page-->
                 <div class='navbar-item'>
-                    <a class='link'>ADOPT</a>
+                    <a class='link' href='adopt.html'>ADOPT</a>
                 </div>
             </div>
         </div>
     </nav>
     <!--Navigation End-->
 
-    <!--Box Containing Images-->
-    <div class="box">
-        <div class="row">
-            <div class="columns">
-                <div class="column">
-                    <figure class="image is-square">
-                        <img src="https://bulma.io/images/placeholders/256x256.png">
-                    </figure>
+    <!--Box: Dog Images-->
+    <div class='section has-text-centered mx-0'>
+        <div class='box'>
+            <div class="tile is-ancestor">
+                <div class="tile is-2">
+                    <img src="https://bulma.io/images/placeholders/256x256.png">
                 </div>
-                <div class="column">
-                    <figure class="image is-square ">
-                        <img src="https://bulma.io/images/placeholders/256x256.png">
-                    </figure>
+                <div class="tile is-2">
+                    <img src="https://bulma.io/images/placeholders/256x256.png">
                 </div>
-                <div class="column">
-                    <figure class="image is-square ">
-                        <img src="https://bulma.io/images/placeholders/256x256.png">
-                    </figure>
+                <div class="tile is-2">
+                    <img src="https://bulma.io/images/placeholders/256x256.png">
                 </div>
-                <div class="column">
-                    <figure class="image is-square ">
-                        <img src="https://bulma.io/images/placeholders/256x256.png">
-                    </figure>
-                    <div class="column">
-                        <figure class="image is-square ">
-                            <img src="https://bulma.io/images/placeholders/256x256.png">
-                        </figure>
-                        <div class="column">
-                            <figure class="image is-square ">
-                                <img src="https://bulma.io/images/placeholders/256x256.png">
-                            </figure>
-                        </div>
-                    </div>
+                <div class="tile is-2">
+                    <img src="https://bulma.io/images/placeholders/256x256.png">
+                </div>
+                <div class="tile is-2">
+                    <img src="https://bulma.io/images/placeholders/256x256.png">
+                </div>
+                <div class="tile is-2">
+                    <img src="https://bulma.io/images/placeholders/256x256.png">
                 </div>
             </div>
         </div>
     </div>
-    <!--Box End-->
+
+
+    <!--End of Dog Images-->
+    <br>
+    <!--Quiz Start Button-->
+    <div class="section has-text-centered">
+        <!-- <div class= 'tile is-4'></div> -->
+        <!--Quiz Button (Centered) -->
+        <!-- <div class='tile is-4'> -->
+        <button class="button is-success is-rounded is-large">Matchmaking Quiz</button>
+        <!-- </div> -->
+        <!-- <div class= 'tile is-4'></div> -->
+    </div>
 
     <!--Matchmaking Quiz (Hidden until Quiz button pressed)-->
     <!--Bos Containing Quiz-->
@@ -151,6 +155,19 @@
                         </div>
                     </div>
                     <!--Question Three End-->
+                    <br>
+                    <!--Text Fields for City/State-->
+                    <input class='input is-rounded has-text-centered is-medium' id='city' type='text'
+                        placeholder='City - Raleigh'>
+                    <input class=' input is-rounded has-text-centered is-medium' id='city' type='text'
+                        placeholder='State - North Carolina'>
+                    <!--Text Fields End-->
+                    <br><br>
+                    <!--Sumbit Quiz Button-->
+                    <div class='has-text-centered'>
+                        <button class="button is-success is-rounded is-large">Submit</button>
+                    </div>
+                    <!--Submit Button End-->
                 </div>
                 <!--End of Content-->
             </div>
@@ -160,8 +177,10 @@
     <!--End of Box-->
 
 
-
+    <!--JavaScript Link-->
     <script src='script.js'></script>
+    <!--jQuery Link-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 
 </html>

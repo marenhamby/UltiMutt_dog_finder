@@ -1,11 +1,18 @@
+.navbar-menu {
+    height: 6rem;
+}
+
+
 h1{
     font-family: 'Pacifico', cursive;
     font-size: x-large;
     color: white;
 }
 
-h2.title{
-    color: white;
+h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: x-large;
+    color: black;
 }
 
 nav{
@@ -16,4 +23,5 @@ nav{
     border: black;
     border-radius: 25px;
 }
+
 
