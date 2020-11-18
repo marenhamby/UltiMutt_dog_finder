@@ -167,11 +167,12 @@ $(document).ready(function () {
 
     });
 
+    
     // create on-click function to take in input value of search and display dog breed info
     $("#search-btn").on("click", function(event){
         event.preventDefault();
         var breed = $("#breed-search").val();
-      console.log (breed);
+        console.log (breed);
     });
 
 
