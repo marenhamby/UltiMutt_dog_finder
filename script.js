@@ -169,8 +169,9 @@ $(document).ready(function () {
 
     // create on-click function to take in input value of search and display dog breed info
     $("#searchDropdown").on("click", function(event){
-        var breed =$();
-
+        event.preventDefault();
+        var breed = $("#breed-search").val();
+      console.log (breed);
     });
 
 
