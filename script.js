@@ -196,17 +196,20 @@ $(document).ready(function () {
             id = breed.id;
            
             //change url to get data that holds the picture using the id retrieved from the old url
-           queryURL = "https://api.thedogapi.com/v1/images/search?api_key=fc1579f0-3bd7-47b7-8946-72cbf49fb328&breed_id="
+            var imageURL = "https://api.thedogapi.com/v1/images/search?api_key=fc1579f0-3bd7-47b7-8946-72cbf49fb328&breed_id="
            + id;
 
          //second ajax call using image url
            $.ajax({
-            url: queryURL,
+            url: imageURL,
             method: "GET",
         }).then(function (response) {
-            console.log(response[0].url)
+            console.log(response[0].url);
+
+            
           
         });
+
 
         });
 
