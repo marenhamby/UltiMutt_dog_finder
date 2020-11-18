@@ -177,6 +177,13 @@ $(document).ready(function () {
         var queryURL = "https://api.thedogapi.com/v1/breeds/search?api_key=fc1579f0-3bd7-47b7-8946-72cbf49fb328&q="
         + breed;
 
+        $.ajax({
+            url: queryURL,
+            method: "GET",
+        }).then(function (response) {
+            console.log(response)
+        });
+
     });
 
 
