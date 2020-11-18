@@ -48,6 +48,9 @@ $(document).ready(function () {
 
         //hide the quiz content
         $("#quiz").hide();
+        $("#centers").show();
+        //unhide the results
+
 
         //create variables for the results that come in from the quiz
 
@@ -104,28 +107,38 @@ $(document).ready(function () {
         }).then(function (response) {
             console.log(response)
 
-            //add var from results from api call
-            var dogNameResult = response.animals[i].name
-            var dogTypeResult = response.animals[i].breeds.primary
-            var ageResult = response.animals[i].age
-            var genderResult = response.animals[i].gender
-            var sizeResult = response.animals[i].size
-            var pictureResult = response.animals[i].photos[0].medium
-            var cityStateResult = response.animals[i].contact.address.city + ", " + response.animals[i].contact.address.state
-            var linkResult = response.animals[i].url
-
             //add looped tiles for results from the api call 
-            // for (var i=0; i<5; i++) {
+            console.log(response.animals)
+            for (var i=0; i<5; i++) {
+                var output = response.animals[i];
+                document.querySelector('#centerOutput').innerHTML +=
+        
+                `<div class="dog-type has-text-centered" id='center-one'>
+                    <h1 class="has-text-centered dog-name">Dog Name: ${output.name}</h1>
+                    <h4 class="dog-type">Breed: ${output.breeds.primary}</h4>
 
+                    <h4 class="age">Age: ${output.age}</h4>
+                    <h4 class="gender">Gender: ${output.gender}</h4>
+                    <h4 class="size">Size: ${output.size}</h4>
+                    <a class='has-text-centered" id="location-name location-link' href="${output.url}">
+                        <h3>Location Center Link</h3>
+                    </a>
+                    <label class="has-text-centered" id="city-state-zip">
+                        <h4>
+                        ${output.contact.address.city}, ${output.contact.address.state}
+                        </h4>
+                    </label>
+                    <div class='has-text-centered'>
+                        <button class="button is-info is-rounded is-large save-button" id= 'saveBtn'>Save</button>
+                    </div>
+                </div>`
+               
+                
+            }
 
-
-            // }
     
-            //add adoption center name
-            //add city and state of adoption center
-            //add link to center
-            //add dog info
-            //add save button
+            // <img src="${response.photos[0].medium}.png" class="image">
+
 
         });
 
