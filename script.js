@@ -34,6 +34,7 @@ $(document).ready(function () {
         if(city && state){
             //set query param for location
             queryParams.location = city + ", " + state;
+            queryParams.distance = "100";
         }
         
         console.log(queryURL + $.param(queryParams));
