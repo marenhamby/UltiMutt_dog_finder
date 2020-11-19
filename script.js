@@ -120,7 +120,7 @@ $(document).ready(function () {
                 var output = response.animals[i];
                 document.querySelector('#centerOutput').innerHTML +=
 
-                    `<div class="dog-type has-text-centered" id='center-one'>
+                    `<div class="dog-type has-text-centered" id='center-one ${output.id}'>
                     <h1 class="has-text-centered dog-name">Dog Name: ${output.name}</h1>
                     <h4 class="dog-type">Breed: ${output.breeds.primary}</h4>
                     <img class="dog${i}">
