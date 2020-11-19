@@ -34,8 +34,9 @@ $(document).ready(function () {
         if(city && state){
             //set query param for location
             queryParams.location = city + ", " + state;
+            queryParams.distance = "100";
         }
-        
+
         console.log(queryURL + $.param(queryParams));
         return queryURL + "&" + $.param(queryParams);
     }
@@ -74,7 +75,6 @@ $(document).ready(function () {
         if ($(".senior").is(":checked")) {
             age.push("senior")
         };
-        console.log(age);
 
         //create if statements to change the value of gender depending on which gender is checked
         if ($(".male").is(":checked")) {
@@ -87,7 +87,6 @@ $(document).ready(function () {
             gender.push("male");
             gender.push("female")
         };
-        console.log(gender);
 
         //create if statements to change the value of size depending on which size is checked
         if ($(".small").is(":checked")) {
@@ -102,7 +101,6 @@ $(document).ready(function () {
         if ($(".X-large").is(":checked")) {
             size.push("x-large")
         };
-        console.log(size);
 
         //assign values to sity and state variable based on input
         city = $("#city").val();
@@ -115,7 +113,6 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET",
         }).then(function (response) {
-            console.log(response)
 
             //add looped tiles for results from the api call 
             console.log(response.animals)
@@ -126,7 +123,10 @@ $(document).ready(function () {
                     `<div class="dog-type has-text-centered" id='center-one'>
                     <h1 class="has-text-centered dog-name">Dog Name: ${output.name}</h1>
                     <h4 class="dog-type">Breed: ${output.breeds.primary}</h4>
-
+<<<<<<< HEAD
+                    <img class="dog${i}">
+=======
+>>>>>>> 577b190131394241751ea1953d7aead5d95e5c66
                     <h4 class="age">Age: ${output.age}</h4>
                     <h4 class="gender">Gender: ${output.gender}</h4>
                     <h4 class="size">Size: ${output.size}</h4>
@@ -142,12 +142,25 @@ $(document).ready(function () {
                         <button class="button is-info is-rounded is-large save-button" id='saveBtn'>Save</button>
                     </div>
                 </div>
-                <br><br>`
+                <br><hr><br>`
+
+                //if present, add photo of the dog
+                if (output.photos[0] !== undefined) {
+                    console.log(output.photos[0].medium)
+
+                    var newPic = output.photos[0].medium
+                    $(".dog"+i).attr("src", newPic)
+                    .width("300px")
+
+                } else {
+                    
+                    $(".dog"+i).attr("src", "./assets/photos/nophoto.png")
+                    .width("300px")
+                }
 
             };
-
-            // <img src="${response.photos[0].medium}.png" class="image">
-
+            
+            //if the save button is clicked, then save that dog info to the save page
         }).then(function(){
             $(".save-button").on("click", function(event){
                 var element = $(this).parent().parent()[0];
@@ -232,12 +245,12 @@ $(document).ready(function () {
             }).then(function (response) {
                 console.log(response[0].url);
 
-                $("#breed-image").attr("src", (response[0].url));
-
+                $("#breed-image").attr("src", (response[0].url))
+                .width('500px')
+                .height('500px');
             });
 
         });
-
 
     });
 
