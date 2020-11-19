@@ -232,8 +232,9 @@ $(document).ready(function () {
             }).then(function (response) {
                 console.log(response[0].url);
 
-                $("#breed-image").attr("src", (response[0].url));
-
+                $("#breed-image").attr("src", (response[0].url))
+                .width('500px')
+                .height('500px');
             });
 
         });
