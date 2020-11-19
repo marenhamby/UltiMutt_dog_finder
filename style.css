@@ -77,9 +77,10 @@ button#startQuiz, button#submitQuiz{
 }
 
 /*Font Size for Answer Choices*/
-label.checkbox {
+.field {
     font-size: x-large;
 }
+
 
 /*Adoption Center Style*/
 /*Hides #Centers upon page load*/
@@ -93,9 +94,12 @@ label.checkbox {
 }
 input#city {
     background-color: #dcdcdc;
+    font-size: x-large;
+    
 }
 input#state{
     background-color:#dcdcdc;
+    font-size: x-large;
 }
 
 /*Save Button Style - Adoption Center*/
