@@ -9,7 +9,7 @@ $(document).ready(function () {
     var state;
 
 
-    //on load, hide the quiz for the results that come in from the quiz
+    //on load, hide the quiz section
     $("#quiz").hide();
 
     //function that builds url based on filtered search
@@ -57,9 +57,6 @@ $(document).ready(function () {
         $("#quiz").hide();
         $("#centers").show();
         //unhide the results
-
-
-        //create variables for the results that come in from the quiz
 
 
         //create if statements to change the value of age depending on which age is checked
@@ -124,7 +121,7 @@ $(document).ready(function () {
                 var output = response.animals[i];
                 document.querySelector('#centerOutput').innerHTML +=
 
-                    `<div class="dog-type has-text-centered" id='center-one ${output.id}'>
+                    `<div class="dog-type has-text-centered" id='center-one'>
                     <h1 class="has-text-centered dog-name">Dog Name: ${output.name}</h1>
                     <h4 class="dog-type">Breed: ${output.breeds.primary}</h4>
 
@@ -144,12 +141,9 @@ $(document).ready(function () {
                     </div>
                 </div>`
 
-
-            }
-
+            };
 
             // <img src="${response.photos[0].medium}.png" class="image">
-
 
         }).then(function(){
             $(".save-button").on("click", function(event){
@@ -158,28 +152,36 @@ $(document).ready(function () {
             });
         });
 
-
-
-
-
-        // //make a variable for the url to be used in the api call
-        // var adoptURL = "https://petproxy.herokuapp.com/animals?type=dog";
-
-        // //make api call for the breed info
-        // $.ajax({
-        //     url: adoptURL,
-        //     method: "GET",
-        // }).then (function(response) {
-        //     console.log(response)
-        // });
-
     });
 
 
+    //add api call to gether the breed list info
+    listURL = "https://api.thedogapi.com/v1/breeds?api_key=fc1579f0-3bd7-47b7-8946-72cbf49fb328"
+    $.ajax({
+        url: listURL,
+        method: "GET",
+    }).then(function (response) {
+        console.log(response);
+
+        //create for loop to pull the names from the api call and populate them in a new dropdown field on the breed page
+        for (var i = 0; i < response.length; i++) {
+            var breedName = response[i].name;
+
+            //create variable for the new breed options to populate in the dropdown list
+            var newOption = $("<option>");
+            newOption.text(breedName);
+
+            //append the breed entry to the list in the dropdown
+            $("#breed-search").append(newOption);
+        }
+    });
+
+
+
     // create on-click function to take in input value of search and display dog breed info
-    $("#search-btn").on("click", function (event) {
+    $("#chooseBtn").on("click", function (event) {
         event.preventDefault();
-        var breed = $("#breed-search").val().trim();
+        var breed = $("#breed-search option:selected").val();
         console.log(breed);
 
         var queryURL = "https://api.thedogapi.com/v1/breeds/search?api_key=fc1579f0-3bd7-47b7-8946-72cbf49fb328&q="
@@ -194,10 +196,10 @@ $(document).ready(function () {
             //Change dog breed
             $(".dog-breed").text(breed.name);
 
-            //change height
-            $(".breed-size").text("Height: " + breed.height.imperial);
+            //change height, weight, and temperament
+            $(".breed-size").text("Height: " + breed.height.imperial + "in.");
 
-            $(".weight").text("Weight: " + breed.weight.imperial);
+            $(".weight").text("Weight: " + breed.weight.imperial + "lbs");
 
             $(".temperament").text("Temperament: " + breed.temperament);
 
@@ -218,11 +220,8 @@ $(document).ready(function () {
 
             });
 
-
         });
 
     });
-
-  
 
 });
