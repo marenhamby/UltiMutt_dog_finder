@@ -49,7 +49,7 @@ $(document).ready(function () {
 
         //show quiz content and hide the button to start the quiz
         $("#quiz").show();
-        $("#startQuiz").hide();
+        $("#HideDiv").hide();
     });
 
     //create on-click function for the submit button for the quiz, and hide the quiz to display results info
@@ -123,10 +123,7 @@ $(document).ready(function () {
                     `<div class="dog-type has-text-centered" id='center-one'>
                     <h1 class="has-text-centered dog-name">Dog Name: ${output.name}</h1>
                     <h4 class="dog-type">Breed: ${output.breeds.primary}</h4>
-<<<<<<< HEAD
                     <img class="dog${i}">
-=======
->>>>>>> 577b190131394241751ea1953d7aead5d95e5c66
                     <h4 class="age">Age: ${output.age}</h4>
                     <h4 class="gender">Gender: ${output.gender}</h4>
                     <h4 class="size">Size: ${output.size}</h4>
@@ -192,11 +189,16 @@ $(document).ready(function () {
         }
     });
 
-
+    //hide the section that shows the breed results
+    $("#breedSection").hide();
 
     // create on-click function to take in input value of search and display dog breed info
     $("#chooseBtn").on("click", function (event) {
         event.preventDefault();
+        
+        //show the section that displays the breed results
+        $("#breedSection").show();
+        
         var breed = $("#breed-search option:selected").val();
         console.log(breed);
 
@@ -247,7 +249,7 @@ $(document).ready(function () {
 
                 $("#breed-image").attr("src", (response[0].url))
                 .width('500px')
-                .height('500px');
+
             });
 
         });
