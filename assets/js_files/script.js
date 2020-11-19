@@ -31,7 +31,7 @@ $(document).ready(function () {
             queryParams.size = size.join(",");
         }
 
-        if(city && state){
+        if (city && state) {
             //set query param for location
             queryParams.location = city + ", " + state;
             queryParams.distance = "100";
@@ -49,7 +49,7 @@ $(document).ready(function () {
 
         //show quiz content and hide the button to start the quiz
         $("#quiz").show();
-        $("#startQuiz").hide();
+        $("#HideDiv").hide();
     });
 
     //create on-click function for the submit button for the quiz, and hide the quiz to display results info
@@ -127,7 +127,7 @@ $(document).ready(function () {
                     <h4 class="age">Age: ${output.age}</h4>
                     <h4 class="gender">Gender: ${output.gender}</h4>
                     <h4 class="size">Size: ${output.size}</h4>
-                    <a class='has-text-centered" id="location-name location-link' href="${output.url}">
+                    <a class='has-text-centered" id="location-name location-link' href="${output.url}" target="_blank">
                         <h3>Location Center Link</h3>
                     </a>
                     <label class="has-text-centered" id="city-state-zip">
@@ -146,107 +146,23 @@ $(document).ready(function () {
                     console.log(output.photos[0].medium)
 
                     var newPic = output.photos[0].medium
-                    $(".dog"+i).attr("src", newPic)
-                    .width("300px")
+                    $(".dog" + i).attr("src", newPic)
+                        .width("300px")
 
                 } else {
-                    
-                    $(".dog"+i).attr("src", "./assets/photos/nophoto.png")
-                    .width("300px")
+
+                    $(".dog" + i).attr("src", "./assets/photos/nophoto.png")
+                        .width("300px")
                 }
 
             };
-            
+
             //if the save button is clicked, then save that dog info to the save page
-        }).then(function(){
-            $(".save-button").on("click", function(event){
+        }).then(function () {
+            $(".save-button").on("click", function (event) {
                 var element = $(this).parent().parent()[0];
                 localStorage.setItem(element.id, element.outerHTML);
             });
-        });
-
-    });
-
-
-    //add api call to gether the breed list info
-    listURL = "https://api.thedogapi.com/v1/breeds?api_key=fc1579f0-3bd7-47b7-8946-72cbf49fb328"
-    $.ajax({
-        url: listURL,
-        method: "GET",
-    }).then(function (response) {
-        console.log(response);
-
-        //create for loop to pull the names from the api call and populate them in a new dropdown field on the breed page
-        for (var i = 0; i < response.length; i++) {
-            var breedName = response[i].name;
-
-            //create variable for the new breed options to populate in the dropdown list
-            var newOption = $("<option>");
-            newOption.text(breedName);
-
-            //append the breed entry to the list in the dropdown
-            $("#breed-search").append(newOption);
-        }
-    });
-
-
-
-    // create on-click function to take in input value of search and display dog breed info
-    $("#chooseBtn").on("click", function (event) {
-        event.preventDefault();
-        var breed = $("#breed-search option:selected").val();
-        console.log(breed);
-
-        var queryURL = "https://api.thedogapi.com/v1/breeds/search?api_key=fc1579f0-3bd7-47b7-8946-72cbf49fb328&q="
-            + breed;
-        var id;
-        $.ajax({
-            url: queryURL,
-            method: "GET",
-        }).then(function (response) {
-            console.log(response)
-            var breed = response[0];
-            //Change dog breed
-            $(".dog-breed").text(breed.name);
-
-            //change height, weight, and temperament
-            $(".breed-size").text("Height: " + breed.height.imperial + "in.");
-
-            $(".weight").text("Weight: " + breed.weight.imperial + "lbs");
-
-            if (breed.name === "Poodle (Miniature)" || breed.name === "Poodle (Toy)") {
-                var poodleURL = "https://api.thedogapi.com/v1/breeds/search?api_key=fc1579f0-3bd7-47b7-8946-72cbf49fb328&q=poodle"
-                $.ajax({
-                    url: poodleURL,
-                    method: "GET"
-                }).then(function(response) {
-                    $(".temperament").text("Temperament: " + response[0].temperament);
-                    console.log(response[0].temperament)    
-                })
-
-            } else {
-                $(".temperament").text("Temperament: " + breed.temperament);
-    
-            }
-
-            id = breed.id;
-
-            //change url to get data that holds the picture using the id retrieved from the old url
-            var imageURL = "https://api.thedogapi.com/v1/images/search?api_key=fc1579f0-3bd7-47b7-8946-72cbf49fb328&breed_id="
-                + id;
-
-            //second ajax call using image url
-            $.ajax({
-                url: imageURL,
-                method: "GET",
-            }).then(function (response) {
-                console.log(response[0].url);
-
-                $("#breed-image").attr("src", (response[0].url))
-                .width('500px')
-                .height('500px');
-            });
-
         });
 
     });
