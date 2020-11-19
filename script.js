@@ -7,7 +7,7 @@ $(document).ready(function () {
     var size = [];
     var city;
     var state;
-    
+
 
     //on load, hide the quiz for the results that come in from the quiz
     $("#quiz").hide();
@@ -16,27 +16,28 @@ $(document).ready(function () {
     function buildQueryURL() {
 
         var queryURL = "https://petproxy.herokuapp.com/animals?";
-        var queryParams = {"type": "dog"};
+        var queryParams = { "type": "dog" };
 
         //Check if age array has values then sets age array values to the key "age"
         if (age.length) {
             queryParams.age = age.join(",");
         }
-       //Check if gender array has values then sets gender array values to the key "gender"
+        //Check if gender array has values then sets gender array values to the key "gender"
         if (gender.length) {
             queryParams.gender = gender.join(",");
         }
-       //Check if size array has values then sets size array values to the key "size"
+        //Check if size array has values then sets size array values to the key "size"
         if (size.length) {
             queryParams.size = size.join(",");
         }
 
         //set query param for location
-        queryParams.location = city + ", "+state;
-        
+        queryParams.location = city + ", " + state;
+
         console.log(queryURL + $.param(queryParams));
-        return queryURL +"&"+ $.param(queryParams);
+        return queryURL + "&" + $.param(queryParams);
     }
+
 
 
     // create on-click function to open the quiz
@@ -106,11 +107,11 @@ $(document).ready(function () {
 
         //assign values to sity and state variable based on input
         city = $("#city").val();
-        state =$("#state").val();
+        state = $("#state").val();
 
         //make api call to get the adoption info from results of input fields
         var queryURL = buildQueryURL();
-        
+
         $.ajax({
             url: queryURL,
             method: "GET",
@@ -119,11 +120,11 @@ $(document).ready(function () {
 
             //add looped tiles for results from the api call 
             console.log(response.animals)
-            for (var i=0; i<5; i++) {
+            for (var i = 0; i < 5; i++) {
                 var output = response.animals[i];
                 document.querySelector('#centerOutput').innerHTML +=
-        
-                `<div class="dog-type has-text-centered" id='center-one'>
+
+                    `<div class="dog-type has-text-centered" id='center-one ${output.id}'>
                     <h1 class="has-text-centered dog-name">Dog Name: ${output.name}</h1>
                     <h4 class="dog-type">Breed: ${output.breeds.primary}</h4>
 
@@ -139,18 +140,25 @@ $(document).ready(function () {
                         </h4>
                     </label>
                     <div class='has-text-centered'>
-                        <button class="button is-info is-rounded is-large save-button" id= 'saveBtn'>Save</button>
+                        <button class="button is-info is-rounded is-large save-button" id='saveBtn'>Save</button>
                     </div>
                 </div>`
-               
-                
+
+
             }
 
-    
+
             // <img src="${response.photos[0].medium}.png" class="image">
 
 
+        }).then(function(){
+            $(".save-button").on("click", function(event){
+                var element = $(this).parent().parent()[0];
+                localStorage.setItem(element.id, element.outerHTML);
+            });
         });
+
+
 
 
 
@@ -169,13 +177,13 @@ $(document).ready(function () {
 
 
     // create on-click function to take in input value of search and display dog breed info
-    $("#search-btn").on("click", function(event){
+    $("#search-btn").on("click", function (event) {
         event.preventDefault();
         var breed = $("#breed-search").val().trim();
-        console.log (breed);
-        
+        console.log(breed);
+
         var queryURL = "https://api.thedogapi.com/v1/breeds/search?api_key=fc1579f0-3bd7-47b7-8946-72cbf49fb328&q="
-        + breed;
+            + breed;
         var id;
         $.ajax({
             url: queryURL,
@@ -184,7 +192,7 @@ $(document).ready(function () {
             console.log(response)
             var breed = response[0];
             //Change dog breed
-            $(".dog-breed").text( breed.name);
+            $(".dog-breed").text(breed.name);
 
             //change height
             $(".breed-size").text("Height: " + breed.height.imperial);
@@ -192,30 +200,29 @@ $(document).ready(function () {
             $(".weight").text("Weight: " + breed.weight.imperial);
 
             $(".temperament").text("Temperament: " + breed.temperament);
-          
+
             id = breed.id;
-           
+
             //change url to get data that holds the picture using the id retrieved from the old url
             var imageURL = "https://api.thedogapi.com/v1/images/search?api_key=fc1579f0-3bd7-47b7-8946-72cbf49fb328&breed_id="
-           + id;
+                + id;
 
-         //second ajax call using image url
-           $.ajax({
-            url: imageURL,
-            method: "GET",
-        }).then(function (response) {
-            console.log(response[0].url);
+            //second ajax call using image url
+            $.ajax({
+                url: imageURL,
+                method: "GET",
+            }).then(function (response) {
+                console.log(response[0].url);
 
-            $("#breed-image").attr("src",(response[0].url));
-          
-        });
+                $("#breed-image").attr("src", (response[0].url));
+
+            });
 
 
         });
 
     });
 
-
-
+  
 
 });
