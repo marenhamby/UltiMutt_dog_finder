@@ -138,22 +138,25 @@ $(document).ready(function () {
                         <button class="button is-info is-rounded is-large save-button" id='saveBtn'>Save</button>
                     </div>
                 </div>
-                <br><br>`
+                <br><hr><br>`
 
+                //if present, add photo of the dog
                 if (output.photos[0] !== undefined) {
                     console.log(output.photos[0].medium)
 
                     var newPic = output.photos[0].medium
                     $(".dog"+i).attr("src", newPic)
+                    .width("300px")
 
                 } else {
                     
-                    $(".dog"+i).attr("src", "https://laxminamkeen.com/wp-content/uploads/2020/08/no-photo-6.jpg")
+                    $(".dog"+i).attr("src", "./assets/photos/nophoto.png")
+                    .width("300px")
                 }
+
             };
-
-            // <img src="${output.photos[0].medium}.png" class="image">
-
+            
+            //if the save button is clicked, then save that dog info to the save page
         }).then(function(){
             $(".save-button").on("click", function(event){
                 var element = $(this).parent().parent()[0];
@@ -243,7 +246,6 @@ $(document).ready(function () {
             });
 
         });
-
 
     });
 
