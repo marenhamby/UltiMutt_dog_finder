@@ -39,6 +39,7 @@ $(document).ready(function () {
     }
 
 
+
     // create on-click function to open the quiz
     $("#startQuiz").on("click", function (event) {
         event.preventDefault();
@@ -136,7 +137,7 @@ $(document).ready(function () {
                         </h4>
                     </label>
                     <div class='has-text-centered'>
-                        <button class="button is-info is-rounded is-large save-button" id= 'saveBtn'>Save</button>
+                        <button class="button is-info is-rounded is-large save-button" id='saveBtn'>Save</button>
                     </div>
                 </div>`
 
@@ -144,6 +145,11 @@ $(document).ready(function () {
 
             // <img src="${response.photos[0].medium}.png" class="image">
 
+        }).then(function(){
+            $(".save-button").on("click", function(event){
+                var element = $(this).parent().parent()[0];
+                localStorage.setItem(element.id, element.outerHTML);
+            });
         });
 
     });
