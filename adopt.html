@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +11,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <!--External Style Sheet-->
-    <link href='style.css' rel='stylesheet'>
-</head>
+    <link href='style-adopt.css' rel='stylesheet'>
+    
+
+    </head>
 <body>
      <!--Navigation Start-->
      <nav class='navbar is-black'>
@@ -84,17 +87,21 @@
         <div class='column is-three-fifths is-offset-one-fifth'>
             <h3 class='has-text-centered'>Saved Dogs</h3>
             <br>
-            <div class='content'>         
-                <div class='has-text-centered'>
-                    <h3 class='has-text-centered saved-dog'>Dog Name</h3>                            
-                        <label class="has-text-centered">
-                            <img src="#">
-                            <div class="age">Age</div>
-                            <div class="breed-size">Breed size</div>
-                            <div class="weight">Weight</div>
-                            <p class="temperament">Temperament </p>
-                            <br>
-                </div>
+            <div class='content' id="savedPets">         
+
             </div>
         </div>
     </div>
+
+    <!--jQuery Link-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--JavaScript Link-->
+    <script type="text/javascript">
+        function getSavedPets() {
+            var petKeys = Object.keys(localStorage);
+            petKeys.map(key => {
+                $("#savedPets").append(localStorage[key]);
+            })
+        }
+        getSavedPets();
+    </script>
