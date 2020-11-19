@@ -31,7 +31,7 @@ $(document).ready(function () {
             queryParams.size = size.join(",");
         }
 
-        if(city && state){
+        if (city && state) {
             //set query param for location
             queryParams.location = city + ", " + state;
             queryParams.distance = "100";
@@ -146,20 +146,20 @@ $(document).ready(function () {
                     console.log(output.photos[0].medium)
 
                     var newPic = output.photos[0].medium
-                    $(".dog"+i).attr("src", newPic)
-                    .width("300px")
+                    $(".dog" + i).attr("src", newPic)
+                        .width("300px")
 
                 } else {
-                    
-                    $(".dog"+i).attr("src", "./assets/photos/nophoto.png")
-                    .width("300px")
+
+                    $(".dog" + i).attr("src", "./assets/photos/nophoto.png")
+                        .width("300px")
                 }
 
             };
-            
+
             //if the save button is clicked, then save that dog info to the save page
-        }).then(function(){
-            $(".save-button").on("click", function(event){
+        }).then(function () {
+            $(".save-button").on("click", function (event) {
                 var element = $(this).parent().parent()[0];
                 localStorage.setItem(element.id, element.outerHTML);
             });
