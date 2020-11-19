@@ -1,1 +1,2 @@
 # UltiMutt_dog_finder
+This application was created for people in search of an adoptable dog companion. A site where they can find dogs that meet their criteria near them as well as inform themselves with
