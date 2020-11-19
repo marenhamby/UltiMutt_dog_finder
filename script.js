@@ -34,6 +34,7 @@ $(document).ready(function () {
         if(city && state){
             //set query param for location
             queryParams.location = city + ", " + state;
+            queryParams.distance = "100";
         }
         
         console.log(queryURL + $.param(queryParams));
@@ -126,7 +127,6 @@ $(document).ready(function () {
                     `<div class="dog-type has-text-centered" id='center-one'>
                     <h1 class="has-text-centered dog-name">Dog Name: ${output.name}</h1>
                     <h4 class="dog-type">Breed: ${output.breeds.primary}</h4>
-
                     <h4 class="age">Age: ${output.age}</h4>
                     <h4 class="gender">Gender: ${output.gender}</h4>
                     <h4 class="size">Size: ${output.size}</h4>
@@ -232,8 +232,9 @@ $(document).ready(function () {
             }).then(function (response) {
                 console.log(response[0].url);
 
-                $("#breed-image").attr("src", (response[0].url));
-
+                $("#breed-image").attr("src", (response[0].url))
+                .width('500px')
+                .height('500px');
             });
 
         });
