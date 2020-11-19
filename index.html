@@ -93,8 +93,8 @@
     </div>
     <!--End of Dog Images-->
 
-    <!--Quiz Start Button-->
-    <div class="section has-text-centered">
+    <!--Quiz Start Button (Hide After Starting Quiz)-->
+    <div class="section has-text-centered" id="HideDiv">
         <button class="button is-success is-rounded is-large" id='startQuiz'>
             Matchmaking Quiz
         </button>
@@ -114,24 +114,22 @@
                     <div class='questionOne'>
                         <h2 class='has-text-centered'>What age dog best suits your lifestyle?</h2>
                         <div class='has-text-centered'>
-                            <label class="checkbox">
-                                <p>
-                                    <input type='checkbox' class='baby'>
-                                    Baby
-                                </p>
-                                <p>
-                                    <input type='checkbox' class='young'>
-                                    Young
-                                </p>
-                                <p>
-                                    <input type='checkbox' class='adult'>
-                                    Adult
-                                </p>
-                                <p>
-                                    <input type='checkbox' class='senior'>
-                                    Senior
-                                </p>
-                            </label>
+                            <div class="field">
+                                <input class="is-checkradio is-large"type="checkbox">
+                                <label class='baby'>Baby</label>
+                              </div>
+                              <div class="field">
+                                <input class="is-checkradio is-large"type="checkbox">
+                                <label class='young'>Young</label>
+                              </div>
+                              <div class="field">
+                                <input class="is-checkradio is-large"type="checkbox">
+                                <label class='adult'>Adult</label>
+                              </div>
+                              <div class="field">
+                                <input class="is-checkradio is-large"type="checkbox">
+                                <label class='senior'>Senior</label>
+                              </div>
                         </div>
                     </div>
                     <!--Question One End-->
@@ -140,20 +138,18 @@
                     <div class='questionTwo'>
                         <h2 class='has-text-centered'>Are you looking for a specific gender?</h2>
                         <div class='has-text-centered'>
-                            <label class="checkbox">
-                                <p>
-                                    <input type='checkbox' class='male'>
-                                    Male
-                                </p>
-                                <p>
-                                    <input type='checkbox' class='female'>
-                                    Female
-                                </p>
-                                <p>
-                                    <input type='checkbox' class='either'>
-                                    No preference
-                                </p>
-                            </label>
+                            <div class="field">
+                                <input class="is-checkradio is-large"type="checkbox">
+                                <label class='male'>Male</label>
+                              </div>
+                              <div class="field">
+                                <input class="is-checkradio is-large"type="checkbox">
+                                <label class='female'>Female</label>
+                              </div>
+                              <div class="field">
+                                <input class="is-checkradio is-large"type="checkbox">
+                                <label class='either'>No Preference</label>
+                              </div>
                         </div>
                     </div>
                     <!--Question Two End-->
@@ -162,24 +158,22 @@
                     <div class='questionThree'>
                         <h2 class='has-text-centered'>What size dog are you comfortable owning?</h2>
                         <div class='has-text-centered'>
-                            <label class="checkbox" class=>
-                                <p>
-                                    <input type='checkbox' class='small'>
-                                    Small
-                                </p>
-                                <p>
-                                    <input type='checkbox' class='medium'>
-                                    Medium
-                                </p>
-                                <p>
-                                    <input type='checkbox' class='large'>
-                                    Large
-                                </p>
-                                <p>
-                                    <input type='checkbox' class='X-large'>
-                                    Extra Large
-                                </p>
-                            </label>
+                            <div class="field">
+                                <input class="is-checkradio is-large"type="checkbox">
+                                <label class='small'>Small</label>
+                              </div>
+                              <div class="field">
+                                <input class="is-checkradio is-large"type="checkbox">
+                                <label class='medium'>Medium</label>
+                              </div>
+                              <div class="field">
+                                <input class="is-checkradio is-large"type="checkbox">
+                                <label class='large'>Large</label>
+                              </div>
+                              <div class="field">
+                                <input class="is-checkradio is-large"type="checkbox">
+                                <label class='X-large'>Extra Large</label>
+                              </div>
                         </div>
                     </div>
                     <!--Question Three End-->
@@ -213,28 +207,6 @@
         <div class='columns my-5'>
             <div class='column is-three-fifths is-offset-one-fifth'>
                 <div class='content' id="centerOutput">
-                    <!--Dog Options Start-->
-                    <!-- <div class="dog-type has-text-centered" id='center-one'>
-                        <h1 class="has-text-centered dog-name">Dog Name</h1>
-                        <h4 class="dog-type">Breed: </h4>
-                        <img src="#" class="image">
-                        <h4 class="age">Age: </h4>
-                        <h4 class="gender">Gender: </h4>
-                        <h4 class="size">Size: </h4>
-                        <a class='has-text-centered" id="location-name location-link' href="#">
-                            <h3>Location Center Name</h3>
-                        </a>
-                            <label class="has-text-centered" id="city-state-zip">
-                                <h4>
-                                    City, State Zip
-                                </h4>
-                            </label> -->
-                            <!--Save Button One begin-->
-                            <!-- <div class='has-text-centered'>
-                                <button class="button is-info is-rounded is-large save-button" id= 'saveBtn'>Save</button>
-                            </div> -->
-                            <!--Save Button One end-->
-                    <!-- </div> -->
                 </div>
             </div>
         </div>
