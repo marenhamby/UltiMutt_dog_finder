@@ -35,7 +35,7 @@ $(document).ready(function () {
             //set query param for location
             queryParams.location = city + ", " + state;
         }
-        
+
         console.log(queryURL + $.param(queryParams));
         return queryURL + "&" + $.param(queryParams);
     }
@@ -74,7 +74,6 @@ $(document).ready(function () {
         if ($(".senior").is(":checked")) {
             age.push("senior")
         };
-        console.log(age);
 
         //create if statements to change the value of gender depending on which gender is checked
         if ($(".male").is(":checked")) {
@@ -87,7 +86,6 @@ $(document).ready(function () {
             gender.push("male");
             gender.push("female")
         };
-        console.log(gender);
 
         //create if statements to change the value of size depending on which size is checked
         if ($(".small").is(":checked")) {
@@ -102,7 +100,6 @@ $(document).ready(function () {
         if ($(".X-large").is(":checked")) {
             size.push("x-large")
         };
-        console.log(size);
 
         //assign values to sity and state variable based on input
         city = $("#city").val();
@@ -115,7 +112,6 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET",
         }).then(function (response) {
-            console.log(response)
 
             //add looped tiles for results from the api call 
             console.log(response.animals)
@@ -126,7 +122,7 @@ $(document).ready(function () {
                     `<div class="dog-type has-text-centered" id='center-one'>
                     <h1 class="has-text-centered dog-name">Dog Name: ${output.name}</h1>
                     <h4 class="dog-type">Breed: ${output.breeds.primary}</h4>
-
+                    <img class="dog${i}">
                     <h4 class="age">Age: ${output.age}</h4>
                     <h4 class="gender">Gender: ${output.gender}</h4>
                     <h4 class="size">Size: ${output.size}</h4>
@@ -144,9 +140,19 @@ $(document).ready(function () {
                 </div>
                 <br><br>`
 
+                if (output.photos[0] !== undefined) {
+                    console.log(output.photos[0].medium)
+
+                    var newPic = output.photos[0].medium
+                    $(".dog"+i).attr("src", newPic)
+
+                } else {
+                    
+                    $(".dog"+i).attr("src", "https://laxminamkeen.com/wp-content/uploads/2020/08/no-photo-6.jpg")
+                }
             };
 
-            // <img src="${response.photos[0].medium}.png" class="image">
+            // <img src="${output.photos[0].medium}.png" class="image">
 
         }).then(function(){
             $(".save-button").on("click", function(event){
