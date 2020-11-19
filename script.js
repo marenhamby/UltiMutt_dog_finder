@@ -31,9 +31,11 @@ $(document).ready(function () {
             queryParams.size = size.join(",");
         }
 
-        //set query param for location
-        queryParams.location = city + ", " + state;
-
+        if(city && state){
+            //set query param for location
+            queryParams.location = city + ", " + state;
+        }
+        
         console.log(queryURL + $.param(queryParams));
         return queryURL + "&" + $.param(queryParams);
     }
