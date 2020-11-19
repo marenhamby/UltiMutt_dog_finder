@@ -139,7 +139,7 @@ $(document).ready(function () {
                         <button class="button is-info is-rounded is-large save-button" id='saveBtn'>Save</button>
                     </div>
                 </div>
-                <br><hr><br>`
+                <hr><br>`
 
                 //if present, add photo of the dog
                 if (output.photos[0] !== undefined) {
