@@ -123,10 +123,7 @@ $(document).ready(function () {
                     `<div class="dog-type has-text-centered" id='center-one'>
                     <h1 class="has-text-centered dog-name">Dog Name: ${output.name}</h1>
                     <h4 class="dog-type">Breed: ${output.breeds.primary}</h4>
-<<<<<<< HEAD
                     <img class="dog${i}">
-=======
->>>>>>> 577b190131394241751ea1953d7aead5d95e5c66
                     <h4 class="age">Age: ${output.age}</h4>
                     <h4 class="gender">Gender: ${output.gender}</h4>
                     <h4 class="size">Size: ${output.size}</h4>
@@ -142,7 +139,7 @@ $(document).ready(function () {
                         <button class="button is-info is-rounded is-large save-button" id='saveBtn'>Save</button>
                     </div>
                 </div>
-                <br><hr><br>`
+                <hr><br>`
 
                 //if present, add photo of the dog
                 if (output.photos[0] !== undefined) {
