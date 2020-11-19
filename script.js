@@ -7,7 +7,7 @@ $(document).ready(function () {
     var size = [];
     var city;
     var state;
-    
+
 
     //on load, hide the quiz section
     $("#quiz").hide();
@@ -16,26 +16,26 @@ $(document).ready(function () {
     function buildQueryURL() {
 
         var queryURL = "https://petproxy.herokuapp.com/animals?";
-        var queryParams = {"type": "dog"};
+        var queryParams = { "type": "dog" };
 
         //Check if age array has values then sets age array values to the key "age"
         if (age.length) {
             queryParams.age = age.join(",");
         }
-       //Check if gender array has values then sets gender array values to the key "gender"
+        //Check if gender array has values then sets gender array values to the key "gender"
         if (gender.length) {
             queryParams.gender = gender.join(",");
         }
-       //Check if size array has values then sets size array values to the key "size"
+        //Check if size array has values then sets size array values to the key "size"
         if (size.length) {
             queryParams.size = size.join(",");
         }
 
         //set query param for location
-        queryParams.location = city + ", "+state;
-        
+        queryParams.location = city + ", " + state;
+
         console.log(queryURL + $.param(queryParams));
-        return queryURL +"&"+ $.param(queryParams);
+        return queryURL + "&" + $.param(queryParams);
     }
 
 
@@ -56,9 +56,6 @@ $(document).ready(function () {
         $("#quiz").hide();
         $("#centers").show();
         //unhide the results
-
-
-        //create variables for the results that come in from the quiz
 
 
         //create if statements to change the value of age depending on which age is checked
@@ -106,11 +103,11 @@ $(document).ready(function () {
 
         //assign values to sity and state variable based on input
         city = $("#city").val();
-        state =$("#state").val();
+        state = $("#state").val();
 
         //make api call to get the adoption info from results of input fields
         var queryURL = buildQueryURL();
-        
+
         $.ajax({
             url: queryURL,
             method: "GET",
@@ -119,11 +116,11 @@ $(document).ready(function () {
 
             //add looped tiles for results from the api call 
             console.log(response.animals)
-            for (var i=0; i<5; i++) {
+            for (var i = 0; i < 5; i++) {
                 var output = response.animals[i];
                 document.querySelector('#centerOutput').innerHTML +=
-        
-                `<div class="dog-type has-text-centered" id='center-one'>
+
+                    `<div class="dog-type has-text-centered" id='center-one'>
                     <h1 class="has-text-centered dog-name">Dog Name: ${output.name}</h1>
                     <h4 class="dog-type">Breed: ${output.breeds.primary}</h4>
 
@@ -142,28 +139,12 @@ $(document).ready(function () {
                         <button class="button is-info is-rounded is-large save-button" id= 'saveBtn'>Save</button>
                     </div>
                 </div>`
-               
-                
-            }
 
-    
+            };
+
             // <img src="${response.photos[0].medium}.png" class="image">
 
-
         });
-
-
-
-        // //make a variable for the url to be used in the api call
-        // var adoptURL = "https://petproxy.herokuapp.com/animals?type=dog";
-
-        // //make api call for the breed info
-        // $.ajax({
-        //     url: adoptURL,
-        //     method: "GET",
-        // }).then (function(response) {
-        //     console.log(response)
-        // });
 
     });
 
@@ -175,30 +156,30 @@ $(document).ready(function () {
         method: "GET",
     }).then(function (response) {
         console.log(response);
-        
+
         //create for loop to pull the names from the api call and populate them in a new dropdown field on the breed page
-        for (var i=0; i<response.length; i++) {
+        for (var i = 0; i < response.length; i++) {
             var breedName = response[i].name;
-    
+
             //create variable for the new breed options to populate in the dropdown list
-            var newOption = $("<option>"); 
+            var newOption = $("<option>");
             newOption.text(breedName);
-            
+
             //append the breed entry to the list in the dropdown
             $("#breed-search").append(newOption);
         }
     });
 
-    
+
 
     // create on-click function to take in input value of search and display dog breed info
-    $("#chooseBtn").on("click", function(event){
+    $("#chooseBtn").on("click", function (event) {
         event.preventDefault();
         var breed = $("#breed-search option:selected").val();
-        console.log (breed);
-        
+        console.log(breed);
+
         var queryURL = "https://api.thedogapi.com/v1/breeds/search?api_key=fc1579f0-3bd7-47b7-8946-72cbf49fb328&q="
-        + breed;
+            + breed;
         var id;
         $.ajax({
             url: queryURL,
@@ -207,7 +188,7 @@ $(document).ready(function () {
             console.log(response)
             var breed = response[0];
             //Change dog breed
-            $(".dog-breed").text( breed.name);
+            $(".dog-breed").text(breed.name);
 
             //change height, weight, and temperament
             $(".breed-size").text("Height: " + breed.height.imperial + "in.");
@@ -215,30 +196,26 @@ $(document).ready(function () {
             $(".weight").text("Weight: " + breed.weight.imperial + "lbs");
 
             $(".temperament").text("Temperament: " + breed.temperament);
-          
+
             id = breed.id;
-           
+
             //change url to get data that holds the picture using the id retrieved from the old url
             var imageURL = "https://api.thedogapi.com/v1/images/search?api_key=fc1579f0-3bd7-47b7-8946-72cbf49fb328&breed_id="
-           + id;
+                + id;
 
-         //second ajax call using image url
-           $.ajax({
-            url: imageURL,
-            method: "GET",
-        }).then(function (response) {
-            console.log(response[0].url);
+            //second ajax call using image url
+            $.ajax({
+                url: imageURL,
+                method: "GET",
+            }).then(function (response) {
+                console.log(response[0].url);
 
-            $("#breed-image").attr("src",(response[0].url));
-          
-        });
+                $("#breed-image").attr("src", (response[0].url));
 
+            });
 
         });
 
     });
-
-
-
 
 });
