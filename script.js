@@ -31,9 +31,11 @@ $(document).ready(function () {
             queryParams.size = size.join(",");
         }
 
-        //set query param for location
-        queryParams.location = city + ", " + state;
-
+        if(city && state){
+            //set query param for location
+            queryParams.location = city + ", " + state;
+        }
+        
         console.log(queryURL + $.param(queryParams));
         return queryURL + "&" + $.param(queryParams);
     }
@@ -124,7 +126,6 @@ $(document).ready(function () {
                     `<div class="dog-type has-text-centered" id='center-one'>
                     <h1 class="has-text-centered dog-name">Dog Name: ${output.name}</h1>
                     <h4 class="dog-type">Breed: ${output.breeds.primary}</h4>
-
                     <h4 class="age">Age: ${output.age}</h4>
                     <h4 class="gender">Gender: ${output.gender}</h4>
                     <h4 class="size">Size: ${output.size}</h4>
@@ -139,7 +140,8 @@ $(document).ready(function () {
                     <div class='has-text-centered'>
                         <button class="button is-info is-rounded is-large save-button" id='saveBtn'>Save</button>
                     </div>
-                </div>`
+                </div>
+                <br><br>`
 
             };
 
@@ -201,7 +203,20 @@ $(document).ready(function () {
 
             $(".weight").text("Weight: " + breed.weight.imperial + "lbs");
 
-            $(".temperament").text("Temperament: " + breed.temperament);
+            if (breed.name === "Poodle (Miniature)" || breed.name === "Poodle (Toy)") {
+                var poodleURL = "https://api.thedogapi.com/v1/breeds/search?api_key=fc1579f0-3bd7-47b7-8946-72cbf49fb328&q=poodle"
+                $.ajax({
+                    url: poodleURL,
+                    method: "GET"
+                }).then(function(response) {
+                    $(".temperament").text("Temperament: " + response[0].temperament);
+                    console.log(response[0].temperament)    
+                })
+
+            } else {
+                $(".temperament").text("Temperament: " + breed.temperament);
+    
+            }
 
             id = breed.id;
 
@@ -221,6 +236,7 @@ $(document).ready(function () {
             });
 
         });
+
 
     });
 
