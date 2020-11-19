@@ -91,11 +91,17 @@ label.checkbox {
 .content h4{
     font-size: x-large;
 }
+input#city {
+    background-color: #dcdcdc;
+}
+input#state{
+    background-color:#dcdcdc;
+}
 
 /*Save Button Style - Adoption Center*/
 #saveBtn{
     background: #66d3fa;
-    font-size: xx-large;
+    font-size: large;
 }
 
 
