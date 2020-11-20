@@ -7,7 +7,6 @@ $(document).ready(function () {
         url: listURL,
         method: "GET",
     }).then(function (response) {
-        console.log(response);
 
         //create for loop to pull the names from the api call and populate them in a new dropdown field on the breed page
         for (var i = 0; i < response.length; i++) {
@@ -33,7 +32,6 @@ $(document).ready(function () {
         $("#breedSection").show();
 
         var breed = $("#breed-search option:selected").val();
-        console.log(breed);
 
         var queryURL = "https://api.thedogapi.com/v1/breeds/search?api_key=fc1579f0-3bd7-47b7-8946-72cbf49fb328&q="
             + breed;
@@ -42,7 +40,6 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET",
         }).then(function (response) {
-            console.log(response)
             var breed = response[0];
             //Change dog breed
             $(".dog-breed").text(breed.name);
@@ -52,6 +49,7 @@ $(document).ready(function () {
 
             $(".weight").text("Weight: " + breed.weight.imperial + "lbs");
 
+            //poodle information for temperament is handled differently in the api, so create if statement to accommodate that change
             if (breed.name === "Poodle (Miniature)" || breed.name === "Poodle (Toy)") {
                 var poodleURL = "https://api.thedogapi.com/v1/breeds/search?api_key=fc1579f0-3bd7-47b7-8946-72cbf49fb328&q=poodle"
                 $.ajax({
@@ -59,7 +57,6 @@ $(document).ready(function () {
                     method: "GET"
                 }).then(function (response) {
                     $(".temperament").text("Temperament: " + response[0].temperament);
-                    console.log(response[0].temperament)
                 })
 
             } else {
@@ -78,7 +75,6 @@ $(document).ready(function () {
                 url: imageURL,
                 method: "GET",
             }).then(function (response) {
-                console.log(response[0].url);
 
                 $("#breed-image").attr("src", (response[0].url))
                     .width('500px')
@@ -88,6 +84,5 @@ $(document).ready(function () {
         });
 
     });
-
 
 })

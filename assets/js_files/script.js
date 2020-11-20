@@ -37,7 +37,6 @@ $(document).ready(function () {
             queryParams.distance = "100";
         }
 
-        console.log(queryURL + $.param(queryParams));
         return queryURL + "&" + $.param(queryParams);
     }
 
@@ -115,7 +114,6 @@ $(document).ready(function () {
         }).then(function (response) {
 
             //add looped tiles for results from the api call 
-            console.log(response.animals)
             for (var i = 0; i < 5; i++) {
                 var output = response.animals[i];
                 document.querySelector('#centerOutput').innerHTML +=
@@ -143,7 +141,6 @@ $(document).ready(function () {
 
                 //if present, add photo of the dog
                 if (output.photos[0] !== undefined) {
-                    console.log(output.photos[0].medium)
 
                     var newPic = output.photos[0].medium
                     $(".dog" + i).attr("src", newPic)
