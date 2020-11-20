@@ -44,8 +44,12 @@ query parameters for the API.
 * Using on click functions for the save buttons information is stored into local storage and then retrieved and displayed on the saved dogs page.
 
 * A drop down menu is utilized in the breed search to ensure proper breed names are input into the search bar.
+
 ## Link
 * Link to deployed application on github pages
 [UltiMUTT Dog Finder](https://marenhamby.github.io/UltiMutt_dog_finder/)
+
+* Link to the presentation
+[UltiMUTT Dog Finder Presentation](https://docs.google.com/presentation/d/1mDzgubVdcHaLeKHzT-n3kHVwF0kYBEb4gNx2jVvCjAo/edit?usp=sharing)
 
 
