@@ -49,4 +49,7 @@ query parameters for the API.
 * Link to deployed application on github pages
 [UltiMUTT Dog Finder](https://marenhamby.github.io/UltiMutt_dog_finder/)
 
+* Link to the presentation
+[UltiMUTT Dog Finder Presentation](https://docs.google.com/presentation/d/1mDzgubVdcHaLeKHzT-n3kHVwF0kYBEb4gNx2jVvCjAo/edit?usp=sharing)
+
 
